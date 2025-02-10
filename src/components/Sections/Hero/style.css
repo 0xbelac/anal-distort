@@ -1,0 +1,139 @@
+.hero-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glitch {
+    font-family: "AnotherDanger", sans-serif;
+    font-size: 85px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: 700;
+    position: relative;
+    color: #000;
+    z-index: 1;
+    width: 100%;
+  }
+  
+  .glitch:before,
+  .glitch:after {
+    content: "Analog Distortions";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+  }
+  
+  .glitch:before {
+    -webkit-animation: glitch-it 0.3s cubic-bezier(.25,.46,.45,.94) infinite both;
+    animation: glitch-it 0.3s cubic-bezier(.25,.46,.45,.94) infinite both;
+    color: #9ff9fb;
+    z-index: -1;
+  }
+  
+  .glitch:after {
+    animation: glitch-it 0.3s cubic-bezier(.25,.46,.45,.94) infinite reverse both;
+    color: #c9357b;
+    z-index: -2;
+  }
+  
+  .glitch-subtitle {
+    font-family: "GlitchGoblin", sans-serif;
+    font-size: 2rem;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none; /* Removes underline */
+    cursor: pointer; /* Makes it look clickable */
+}
+
+.glitch-subtitle:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Subtle glitch effect when idle */
+.glitch-subtitle:before,
+.glitch-subtitle:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+}
+
+.glitch-subtitle:before {
+    animation: subtitle-glitch 0.2s ease-in-out infinite both;
+    color: rgba(255, 0, 255, 0.6); /* Purple Flicker */
+    z-index: -1;
+}
+
+.glitch-subtitle:after {
+    animation: subtitle-glitch 0.2s ease-in-out infinite reverse both;
+    color: rgba(0, 255, 255, 0.6); /* Cyan Flicker */
+    z-index: -2;
+}
+
+/* Keyframes for Subtitle Flicker */
+@keyframes subtitle-glitch {
+    0% {
+        transform: translate(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translate(-1px, 1px);
+        opacity: 0.8;
+    }
+    40% {
+        transform: translate(-1px, -1px);
+        opacity: 0.6;
+    }
+    60% {
+        transform: translate(1px, 1px);
+        opacity: 0.8;
+    }
+    80% {
+        transform: translate(1px, -1px);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+  
+  /* Keyframes for the Glitch Effect */
+  @keyframes glitch-it {
+    0% {
+      transform: translate(0);
+      opacity: 1;
+    }
+    20% {
+      transform: translate(-2px, 2px);
+      opacity: 0.8;
+    }
+    40% {
+      transform: translate(-2px, -2px);
+      opacity: 0.6;
+    }
+    60% {
+      transform: translate(2px, 2px);
+      opacity: 0.8;
+    }
+    80% {
+      transform: translate(2px, -2px);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
